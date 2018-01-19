@@ -6,4 +6,5 @@ I wrote a parser for `What's On` page for each theatre using Nokogiri library. C
 
 Each theatre has it's own filters, depends on information they provide on a website: by tags, by time, by price.
 
+## Preview
 ![Preview](/demonstration/perfomances_demonstration.gif)
