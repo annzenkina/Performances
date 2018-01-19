@@ -21,7 +21,7 @@ module EventFetcher
       end
 
       event = PerformanceEvent.new
-      event.theatre = THEATRE_NATIONALTHEATRE
+      event.theatre = PerformanceEvent::THEATRE_NATIONALTHEATRE
       event.title = title.strip
       event.date = date.sub("Various times","")
       event.time = time.strip
@@ -86,7 +86,7 @@ module EventFetcher
       event.price = ""
       event.poster = poster
       event.description = description.strip
-      event.theatre = THREATRE_SOUTHBANK
+      event.theatre = PerformanceEvent::THREATRE_SOUTHBANK
       if (title != nil) && (title.strip != "")
         event_arr << event
       end
@@ -130,7 +130,7 @@ module EventFetcher
       event.poster = poster
       event.description = description
       event.tags = tags
-      event.theatre = THEATRE_ROH
+      event.theatre = PerformanceEvent::THEATRE_ROH
       if (title != nil) && (title.strip != "")
         event_arr << event
       end

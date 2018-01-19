@@ -84,10 +84,9 @@
     </div>
   </form>
 <% end %>
-<!-- <%= debug @tags_set.to_a %> -->
 
 <% @event_arr.each do |event| %>
-  <h2> <%= link_to event.theatre + " – " + event.title, event.link %></h2>
+  <h2 class="event-title"> <%= link_to event.theatre + " – " + event.title, event.link %></h2>
   <div class="row">
     <div class="col-lg-6">
         <%= image_tag event.poster, class: "img-rounded" %>
