@@ -1,0 +1,3791 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]--><html class="no-js" ><meta charset="utf-8"><script>window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function u(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,f=0;s>f;f++)a[f].apply(i,r);var u=c[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return f[t]=f[t]||r(u)}function h(t,e){s(t,function(t,n){e=e||"feature",v[n]=e,e in c||(c[e]=[])})}var m={},v={},w={on:d,emit:u,get:p,listeners:l,context:e,buffer:h};return w}function o(){return new n}var i="nr@context",a=t("gos"),s=t(1),c={},f={},u=e.exports=r();u.backlog=c},{1:23,gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:23,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(1),t(2),"addEventListener"in window&&t(3),a.xhrWrappable&&t(4),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:9,2:8,3:6,4:10,5:3,6:24,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=NREUM.o.EV;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:9,2:8,3:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],6:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").get("events"),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:25,ee:"QJf3ax",gos:"7eSDFh"}],7:[function(t,e){var n=t("ee").get("history"),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:25,ee:"QJf3ax"}],8:[function(t,e){var n=t("ee").get("raf"),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:25,ee:"QJf3ax"}],9:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").get("timer"),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:25,ee:"QJf3ax"}],10:[function(t,e){function n(t,e){e=e||this;var n=i.context(e);e.readyState>3&&!n.resolved&&(n.resolved=!0,i.emit("xhr-resolved",[],e));try{c.inPlace(e,l,"fn-",r)}catch(o){}}function r(t,e){return e}function o(t,e){for(var n in t)e[n]=t[n];return e}var i=t("ee").get("xhr"),a=t(1),s=t(2),c=s(i),f=s(a),u=NREUM.o,d=u.XHR,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout","onreadystatechange"];e.exports=i,window.XMLHttpRequest=function(t){var e=new d(t);try{i.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&f.inPlace(e,["addEventListener","removeEventListener"],"-",r),e.addEventListener("readystatechange",n,!1)}catch(o){try{i.emit("internal-error",[o])}catch(a){}}return e},o(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:6,2:25,ee:"QJf3ax"}],11:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=n(t,this.lastSize);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var o="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return r(o)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=null,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:12,3:14,4:10,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],12:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],13:[function(t,e){function n(t,e){return function(){r(t,[(new Date).getTime()].concat(i(arguments)),null,e)}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],s=["addPageAction"],c="api-";o(a,function(t,e){newrelic[e]=n(c+e,"api")}),o(s,function(t,e){newrelic[e]=n(c+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),r("err",[t,(new Date).getTime()])}},{1:23,2:24,handle:"D5DuLP"}],14:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n,o){r.buffer([t],o),r.emit(t,e,n)}var r=t("ee").get("handle");e.exports=n,n.ee=r},{ee:"QJf3ax"}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()],null,"api");var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()],null,"api")}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;NREUM.o={ST:setTimeout,XHR:c.XMLHttpRequest,REQ:c.Request,EV:c.Event,PR:c.Promise,MO:c.MutationObserver},t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-885.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()],null,"api");var h=0},{1:23,2:13,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],23:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],24:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],25:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:24,ee:"QJf3ax"}]},{},["G9z0Bl",4,11,5]);NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"d77388cc2b",applicationID:"12006783",sa:1,agent:"js-agent.newrelic.com/nr-885.min.js"};</script><title>Ticket search — Events &mdash; Royal Opera House</title><meta name="referrer" content="none"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="subresource" href="https://roh.global.ssl.fastly.net/v2/images/73c1fbc.png?v=1.47.0"><link rel="dns-prefetch" href="//static.roh.org.uk"><link rel="dns-prefetch" href="//farm9.staticflickr.com"><link rel="dns-prefetch" href="//farm8.staticflickr.com"><link rel="dns-prefetch" href="//farm7.staticflickr.com"><link rel="dns-prefetch" href="//farm6.staticflickr.com"><link rel="dns-prefetch" href="//farm5.staticflickr.com"><link rel="dns-prefetch" href="//farm4.staticflickr.com"><link rel="dns-prefetch" href="//farm3.staticflickr.com"><link rel="dns-prefetch" href="//farm2.staticflickr.com"><link rel="dns-prefetch" href="//farm1.staticflickr.com"><link rel="dns-prefetch" href="//adserver.adtech.de"><link rel="dns-prefetch" href="//aka-cdn.adtech.de"><link rel="shortcut icon" href="https://roh.global.ssl.fastly.net/v2/images/3982e64.ico?v=1.47.0"><link rel="apple-touch-icon-precomposed" href="https://roh.global.ssl.fastly.net/v2/images/e0679c0.png?v=1.47.0"><meta name="msapplication-TileColor" content="#c60c30"><meta name="msapplication-TileImage" content="https://roh.global.ssl.fastly.net/v2/images/e0679c0.png?v=1.47.0"><script>var ROH_Config={assets_base_url:"https://roh.global.ssl.fastly.net/v2/",host:"www.roh.org.uk",assets_version:"v=1.47.0"}</script><link rel="stylesheet" href="https://roh.global.ssl.fastly.net/v2/css/b9b9ad2.css?v=1.47.0"><!--[if lte IE 8]><link rel="stylesheet" href="https://roh.global.ssl.fastly.net/v2/css/65dfc1a.css?v=1.47.0"><![endif]--><script src="https://roh.global.ssl.fastly.net/v2/js/230eaae.js?v=1.47.0"></script><script>var gtm_auth='UVxdgigMRrwhApG7ExBgWw',gtm_preview='env-2',gtm_container='GTM-WRFMRMN';(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl+"&gtm_auth="+gtm_auth+"&gtm_preview="+gtm_preview+"&gtm_cookies_win=x";f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer",gtm_container);</script><body class="xmas">    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=UVxdgigMRrwhApG7ExBgWw&amp;gtm_auth=UVxdgigMRrwhApG7ExBgWw&amp;gtm_preview=env-2&amp;gtm_cookies_win=x" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+<div id="rohAccLnk" class="a11y">
+    <p><strong>Accessibility links</strong></p>
+    <ul>
+        <li><a href="#content">Skip to content</a></li>
+        <li><a href="#site-nav">Skip to navigation</a></li>
+        <li><a href="#mhSB">Skip to search</a></li>
+        <li><a href="/help">Help</a></li>
+    </ul>
+</div>
+
+<nav id="site-nav">
+    <ul>
+        <li class="divider"><a href="/" title="ROH home page"><span>Home</span></a></li>
+        <li class="major"><a href="/events">What's on</a></li>
+        <li class="major"><a href="/news">News</a></li>
+        <li class="major divider"><a href="/visit">Your visit</a></li>
+        <li><a href="/learning">Learning</a></li>
+        <li><a href="/support">Support us</a></li>
+        <li><a href="/products/">Shop</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+<div id="main">
+    <div id="push">
+        <header id="mh">
+            <div id="mhBar1"></div>
+            <div id="mhBar2">
+                <section>
+                    <div id="mobile-menu-buttons">
+                        <a href="#site-nav" title="Show site navigation menu">
+                            <div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </a>
+                        <a href="#" title="Hide site navigation menu">
+                            <div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="mhTop">
+                                                                <div class="mhTxtLnk"><a href="/register"><p>Register</p></a></div>
+        <div class="mhTxtLnk mhP"><p>|</p></div>
+        <div class="mhTxtLnk"><a href="/signin"><p>Sign in</p></a></div>
+        <a href="/signin"><div id="mhUser">Sign In</div></a>
+    
+    <script>
+        window.roh = window.roh || {};
+        window.roh.user = window.roh.user || {};
+
+                    window.roh.user.modeOfSale = 9;
+            </script>
+
+
+                                        <div id="mhCart" class="empty" >Basket<div id="mhBasket">Basket</div></div>
+    
+                                                <div class="mhLnk">
+                            <div id="mhSD">
+                                <form id="mhSFm" action="/search">
+                                    <input id="mhSB" name="q" autocomplete="off" placeholder="Search" type="text">
+                                    <label for="mhSB" class="a11y">Search</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </header>
+        <div id="mobile-menu-open-cover"></div>
+<div id="mhBc"><section><ul id="xi-breadcrumbs" vocab="http://schema.org/" typeof="BreadcrumbList"><li property="itemListElement" typeof="ListItem"><a href="/" property="item" typeof="WebPage"><span property="name">Home</span></a><meta property="position" content="1"></li><li property="itemListElement" typeof="ListItem"><a href="/events" property="item" typeof="WebPage"><span property="name">Events</span></a><meta property="position" content="2"></li><li>Ticket search</li></ul></section></div><div id="content">
+        <script type="text/javascript">
+        var ticketSearchBaseUrl = '/events/ticket-search';
+        var ticketSearchServiceBaseUrl = '/events/ticket-search-service';
+    </script>
+
+            <script type="text/javascript" src="https://roh.global.ssl.fastly.net/v2/js/274565e.js?v=1.47.0"></script>
+        <section>
+        <h1>Ticket search</h1>
+        <div id="update"><a href="#" class="actionBtn toggleFilter">Update</a></div>
+        <div id="edit"><a href="#" class="actionBtn toggleFilter">Edit</a></div>
+    </section>
+    <aside class="fltrNav rohForm">
+        <div id="mobPnl" class="show">
+            <div id="curSrch">
+                <p>
+                    When: <span data-type="when"></span> |
+                    Price: <span data-type="price"></span> |
+                    Venue: <span data-type="venues"></span>
+                </p>
+            </div>
+        </div>
+        <div id="filter">
+            <h2 class="primary small noLine">When</h2>
+            <ul data-type="when" class="tsOptions">
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="anyDate"
+    class="selected"
+    >Any date</a>
+    <span data-value="anyDate" class="selected">Any date</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=today&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="today"
+    class="not-selected"
+    >Today</a>
+    <span data-value="today" class="not-selected">Today</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=tomorrow&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="tomorrow"
+    class="not-selected"
+    >Tomorrow</a>
+    <span data-value="tomorrow" class="not-selected">Tomorrow</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=thisWeek&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="thisWeek"
+    class="not-selected"
+    >This week</a>
+    <span data-value="thisWeek" class="not-selected">This week</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=thisWeekend&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="thisWeekend"
+    class="not-selected"
+    >This weekend</a>
+    <span data-value="thisWeekend" class="not-selected">This weekend</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=next30Days&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="next30Days"
+    class="not-selected"
+    >Next 30 days</a>
+    <span data-value="next30Days" class="not-selected">Next 30 days</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=range&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="range"
+    class="not-selected"
+    >Specify a date range</a>
+    <span data-value="range" class="not-selected">Specify a date range</span>
+</li>
+
+
+                <li class="rangeSelection hidden" data-range-type="date">
+                    <form name="" method="get" action="/events/ticket-search" id="criteria-date-custom">
+                        <input type="text" id="whenFrom" name="whenFrom" maxlength="10" class="datepicker" data-format="DD/MM/YYYY" data-min="08/12/2017" data-range-bound="lower" placeholder="DD/MM/YYYY" />
+                        <span>to</span>
+                        <input type="text" id="whenTo" name="whenTo" maxlength="10" class="datepicker" data-format="DD/MM/YYYY" data-min="08/12/2017" data-range-bound="upper" placeholder="DD/MM/YYYY" />
+                        <noscript>
+                            <input class="padT32 maxw" type="submit" value="Apply">
+                        </noscript>
+                    <input type="hidden" id="when" name="when" value="anyDate" /><input type="hidden" id="price" name="price" value="any" /><input type="hidden" id="priceFrom" name="priceFrom" value="0" /><input type="hidden" id="priceTo" name="priceTo" value="999" /><input type="hidden" id="venues" name="venues" value="mainStage,linburyStudioTheatre" /><input type="hidden" id="orderBy" name="orderBy" value="soonest" /></form>
+                </li>
+            </ul>
+
+            <h2 class="small noLine">Price</h2>
+            <ul data-type="price" class="tsOptions">
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="any"
+    class="selected"
+    >Any price</a>
+    <span data-value="any" class="selected">Any price</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=under30Pounds&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="under30Pounds"
+    class="not-selected"
+    >Under &pound;30</a>
+    <span data-value="under30Pounds" class="not-selected">Under &pound;30</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=under50Pounds&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="under50Pounds"
+    class="not-selected"
+    >Under &pound;50</a>
+    <span data-value="under50Pounds" class="not-selected">Under &pound;50</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=under100Pounds&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="under100Pounds"
+    class="not-selected"
+    >Under &pound;100</a>
+    <span data-value="under100Pounds" class="not-selected">Under &pound;100</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=range&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="range"
+    class="not-selected"
+    >Specify a price range</a>
+    <span data-value="range" class="not-selected">Specify a price range</span>
+</li>
+
+
+                <li class="rangeSelection hidden" data-range-type="price">
+                    <form name="" method="get" action="/events/ticket-search">
+                                <span class="inlineb">&#163;
+    <input class="inlineb moneyw" type="number" id="priceFrom" name="priceFrom" maxlength="3" data-range-bound="lower" value="0.00" /></span>
+ to
+                                <span class="inlineb">&#163;
+    <input class="inlineb moneyw" type="number" id="priceTo" name="priceTo" maxlength="3" data-range-bound="upper" value="999.00" /></span>
+
+                        <noscript>
+                            <input class="padT32 maxw" type="submit" value="Apply">
+                        </noscript>
+                    <input type="hidden" id="when" name="when" value="anyDate" /><input type="hidden" id="whenFrom" name="whenFrom" /><input type="hidden" id="whenTo" name="whenTo" /><input type="hidden" id="price" name="price" value="any" /><input type="hidden" id="venues" name="venues" value="mainStage,linburyStudioTheatre" /><input type="hidden" id="orderBy" name="orderBy" value="soonest" /></form>
+                </li>
+            </ul>
+
+            <h2 class="small noLine">Venue</h2>
+            <form name="" method="get" action="/events/ticket-search">
+            <ul data-type="venues" class="tsOptions">
+                <li>
+                        <div class="field__label--block">
+                    <input type="checkbox" id="venues_0" name="venues[]" class="field__input" value="mainStage" checked="checked" />
+            <label class="field__label" for="venues_0">
+                <span>Main Stage</span>
+            </label>
+                
+                    <input type="checkbox" id="venues_1" name="venues[]" class="field__input" value="linburyStudioTheatre" checked="checked" />
+            <label class="field__label" for="venues_1">
+                <span>Linbury Studio Theatre</span>
+            </label>
+                
+                    <input type="checkbox" id="venues_2" name="venues[]" class="field__input" value="cloreStudioUpstairs" />
+            <label class="field__label" for="venues_2">
+                <span>Clore Studio Upstairs</span>
+            </label>
+                
+                    <input type="checkbox" id="venues_3" name="venues[]" class="field__input" value="other" />
+            <label class="field__label" for="venues_3">
+                <span>Other</span>
+            </label>
+                
+            </div>
+
+                    <noscript>
+                        <input class="padT32 maxw" type="submit" value="Apply">
+                    </noscript>
+                </li>
+            </ul>
+            </form>
+
+            <h2 class="small noLine">Order by</h2>
+            <ul data-type="orderBy" class="tsOptions">
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=soonest"
+    data-value="soonest"
+    class="selected"
+    >Date</a>
+    <span data-value="soonest" class="selected">Date</span>
+</li>
+
+
+                <li>
+    <a
+    href="/events/ticket-search?when=anyDate&amp;price=any&amp;priceFrom=0&amp;priceTo=999&amp;venues=mainStage%2ClinburyStudioTheatre&amp;orderBy=cheapest"
+    data-value="cheapest"
+    class="not-selected"
+    >Price: Low to high</a>
+    <span data-value="cheapest" class="not-selected">Price: Low to high</span>
+</li>
+
+            </ul>
+        </div>
+    </aside>
+    <article class="tsResults right">
+                    <h2>82 events with tickets available</h2>
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/z36vq" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/z36vq" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 9 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34032">
+    
+                                        <a class="availability-button buy" href="/events/34032/tickets">Buy</a>
+<div class="tickets event-34032">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/j4wh7" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/j4wh7" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 12 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34033">
+    
+                                        <a class="availability-button buy" href="/events/34033/tickets">Buy</a>
+<div class="tickets event-34033">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/cbrm9" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/semiramide-by-david-alden/images/halves?1504697175" alt="Semiramide" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/cbrm9" class="headingLink">
+                Semiramide
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 13 December 2017, 6.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            David Alden directs The Royal Opera’s first production of Rossini’s epic tragedy.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34045">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34045/tickets">Buy</a>
+<div class="tickets event-34045">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/4sz8q" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/4sz8q" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 14 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33947">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33947/tickets">Buy</a>
+<div class="tickets event-33947">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/6z45v" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/6z45v" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 15 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34034">
+    
+                                        <a class="availability-button buy" href="/events/34034/tickets">Buy</a>
+<div class="tickets event-34034">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/7dg8k" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/sylvia-by-frederick-ashton/images/halves?1497612682" alt="Sylvia" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/7dg8k" class="headingLink">
+                Sylvia
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 16 December 2017, 11.30am |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Frederick Ashton’s delightful full-length classical ballet is a charming feast for the senses, set to Delibes’ marvellous score.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34155">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34155/tickets">Buy</a>
+<div class="tickets event-34155">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/6bzq3" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/semiramide-by-david-alden/images/halves?1504697175" alt="Semiramide" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/6bzq3" class="headingLink">
+                Semiramide
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 16 December 2017, 6.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            David Alden directs The Royal Opera’s first production of Rossini’s epic tragedy.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34046">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34046/tickets">Buy</a>
+<div class="tickets event-34046">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/9mp5q" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-nutcracker-by-peter-wright/images/halves?1504697012" alt="The Nutcracker" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/9mp5q" class="headingLink">
+                The Nutcracker
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 18 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            A young girl’s enchanted present leads her on a wonderful Christmas adventure in this beautiful classical ballet, danced to Tchaikovsky’s magnificent score.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34160">
+    
+                                        <a class="availability-button buy" href="/events/34160/tickets">Buy</a>
+<div class="tickets event-34160">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/pk9kp" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/pk9kp" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 19 December 2017, 12 noon |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34047">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34047/tickets">Buy</a>
+<div class="tickets event-34047">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/psyn5" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/psyn5" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 19 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34035">
+    
+                                        <a class="availability-button buy" href="/events/34035/tickets">Buy</a>
+<div class="tickets event-34035">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/5vp8j" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-nutcracker-by-peter-wright/images/halves?1504697012" alt="The Nutcracker" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/5vp8j" class="headingLink">
+                The Nutcracker
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 20 December 2017, 2.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            A young girl’s enchanted present leads her on a wonderful Christmas adventure in this beautiful classical ballet, danced to Tchaikovsky’s magnificent score.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34161">
+            <ul class="event-indicators">
+                                        <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34161/tickets">Buy</a>
+<div class="tickets event-34161">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/bl4d4" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/bl4d4" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 21 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34048">
+    
+                                        <a class="availability-button buy" href="/events/34048/tickets">Buy</a>
+<div class="tickets event-34048">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/j8yy8" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/j8yy8" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 22 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34036">
+    
+                                        <a class="availability-button buy" href="/events/34036/tickets">Buy</a>
+<div class="tickets event-34036">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/6pjgt" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/6pjgt" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 23 December 2017, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34049">
+    
+                                        <a class="availability-button buy" href="/events/34049/tickets">Buy</a>
+<div class="tickets event-34049">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/lv9cn" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-nutcracker-by-peter-wright/images/halves?1504697012" alt="The Nutcracker" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/lv9cn" class="headingLink">
+                The Nutcracker
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 30 December 2017, 2pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            A young girl’s enchanted present leads her on a wonderful Christmas adventure in this beautiful classical ballet, danced to Tchaikovsky’s magnificent score.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34170">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34170/tickets">Buy</a>
+<div class="tickets event-34170">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/x8gfd" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-nutcracker-by-peter-wright/images/halves?1504697012" alt="The Nutcracker" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/x8gfd" class="headingLink">
+                The Nutcracker
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 30 December 2017, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            A young girl’s enchanted present leads her on a wonderful Christmas adventure in this beautiful classical ballet, danced to Tchaikovsky’s magnificent score.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34171">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34171/tickets">Buy</a>
+<div class="tickets event-34171">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/7px9b" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/7px9b" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 4 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34050">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34050/tickets">Buy</a>
+<div class="tickets event-34050">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/tpmt8" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/tpmt8" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 6 January 2018, 12 noon |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34037">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="BSL interpreted"><a href="/visit/tickets#event-indicators">BSL</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34037/tickets">Buy</a>
+<div class="tickets event-34037">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/3lbwb" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/3lbwb" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 6 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34051">
+    
+                                        <a class="availability-button buy" href="/events/34051/tickets">Buy</a>
+<div class="tickets event-34051">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/gy98r" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/gy98r" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 8 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33948">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                            <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33948/tickets">Buy</a>
+<div class="tickets event-33948">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/z37mb" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/z37mb" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 9 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34038">
+    
+                                        <a class="availability-button buy" href="/events/34038/tickets">Buy</a>
+<div class="tickets event-34038">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/kkh98" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/kkh98" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 11 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34052">
+    
+                                        <a class="availability-button buy" href="/events/34052/tickets">Buy</a>
+<div class="tickets event-34052">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/2r7kx" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/2r7kx" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 12 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34055">
+            <ul class="event-indicators">
+                                        <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34055/tickets">Buy</a>
+<div class="tickets event-34055">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/c6xnt" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/cavalleria-rusticana-pagliacci/images/halves?1500999493" alt="Cavalleria rusticana / Pagliacci" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/c6xnt" class="headingLink">
+                Cavalleria rusticana / Pagliacci
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 13 January 2018, 12 noon |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Damiano Michieletto’s Olivier Award-winning productions of Mascagni and Leoncavallo’s great one-act operas masterfully unites these two incendiary works.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34039">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34039/tickets">Buy</a>
+<div class="tickets event-34039">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/v3rd2" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/v3rd2" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 13 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34053">
+    
+                                        <a class="availability-button buy" href="/events/34053/tickets">Buy</a>
+<div class="tickets event-34053">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/tq8n7" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/tq8n7" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 15 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33949">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33949/tickets">Buy</a>
+<div class="tickets event-33949">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/p7b72" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/rigoletto-by-david-mcvicar/images/halves?1504696689" alt="Rigoletto" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/p7b72" class="headingLink">
+                Rigoletto
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 16 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The corruption of innocence is at the heart of Verdi’s potent tragedy in David McVicar’s production for The Royal Opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34054">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34054/tickets">Buy</a>
+<div class="tickets event-34054">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/334sd" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/334sd" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 17 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34056">
+            <ul class="event-indicators">
+                                        <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34056/tickets">Buy</a>
+<div class="tickets event-34056">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/ddt8m" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/ddt8m" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 18 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34061">
+    
+                                        <a class="availability-button buy" href="/events/34061/tickets">Buy</a>
+<div class="tickets event-34061">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/3sgcg" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/3sgcg" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 20 January 2018, 2pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34181">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34181/tickets">Buy</a>
+<div class="tickets event-34181">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/svw23" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/svw23" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Sunday 21 January 2018, 12.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34062">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34062/tickets">Buy</a>
+<div class="tickets event-34062">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/c7q2d" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/c7q2d" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Sunday 21 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34057">
+            <ul class="event-indicators">
+                                        <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34057/tickets">Buy</a>
+<div class="tickets event-34057">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/bxf83" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/bxf83" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 23 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34058">
+            <ul class="event-indicators">
+                                        <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34058/tickets">Buy</a>
+<div class="tickets event-34058">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/bd4xg" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/bd4xg" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 26 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34059">
+            <ul class="event-indicators">
+                                        <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34059/tickets">Buy</a>
+<div class="tickets event-34059">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/33f47" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/salome-by-david-mcvicar/images/halves?1504696816" alt="Salome" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/33f47" class="headingLink">
+                Salome
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 30 January 2018, 8pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Religion, sexuality and perversion potently combine in David McVicar’s gripping production of Richard Strauss’s opera.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34060">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="No interval"><a href="/visit/tickets#event-indicators">No interval</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34060/tickets">Buy</a>
+<div class="tickets event-34060">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/5wnbv" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/5wnbv" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 31 January 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34065">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34065/tickets">Buy</a>
+<div class="tickets event-34065">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/nghg6" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/nghg6" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 1 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34183">
+    
+                                        <a class="availability-button buy" href="/events/34183/tickets">Buy</a>
+<div class="tickets event-34183">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/sp3r4" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/sp3r4" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 2 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34188">
+    
+                                        <a class="availability-button buy" href="/events/34188/tickets">Buy</a>
+<div class="tickets event-34188">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/djqq5" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/djqq5" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 3 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34066">
+    
+                                        <a class="availability-button buy" href="/events/34066/tickets">Buy</a>
+<div class="tickets event-34066">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/mxz7g" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/mxz7g" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 5 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34189">
+    
+                                        <a class="availability-button buy" href="/events/34189/tickets">Buy</a>
+<div class="tickets event-34189">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/t4g9b" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/t4g9b" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 6 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33950">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33950/tickets">Buy</a>
+<div class="tickets event-33950">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/dcl29" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/dcl29" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 7 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34067">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34067/tickets">Buy</a>
+<div class="tickets event-34067">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/dxkf3" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/dxkf3" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 8 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34190">
+    
+                                        <a class="availability-button buy" href="/events/34190/tickets">Buy</a>
+<div class="tickets event-34190">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/fmc7k" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/fmc7k" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 9 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34191">
+    
+                                        <a class="availability-button buy" href="/events/34191/tickets">Buy</a>
+<div class="tickets event-34191">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/z2pxl" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/z2pxl" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 10 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34073">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34073/tickets">Buy</a>
+<div class="tickets event-34073">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/376b3" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/376b3" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 12 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34193">
+    
+                                        <a class="availability-button buy" href="/events/34193/tickets">Buy</a>
+<div class="tickets event-34193">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/st5gx" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/st5gx" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 13 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33966">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33966/tickets">Buy</a>
+<div class="tickets event-33966">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/9wdt2" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/9wdt2" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 14 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34074">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34074/tickets">Buy</a>
+<div class="tickets event-34074">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/jd2s9" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/jd2s9" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 15 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34198">
+    
+                                        <a class="availability-button buy" href="/events/34198/tickets">Buy</a>
+<div class="tickets event-34198">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/xh9tq" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/xh9tq" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 16 February 2018, 12 noon |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34075">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34075/tickets">Buy</a>
+<div class="tickets event-34075">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/2frc3" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/2frc3" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 16 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34199">
+    
+                                        <a class="availability-button buy" href="/events/34199/tickets">Buy</a>
+<div class="tickets event-34199">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/kdss5" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/kdss5" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 17 February 2018, 1.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34068">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34068/tickets">Buy</a>
+<div class="tickets event-34068">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/dd5c5" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/dd5c5" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 19 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34069">
+    
+                                        <a class="availability-button buy" href="/events/34069/tickets">Buy</a>
+<div class="tickets event-34069">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/pzm9b" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/pzm9b" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 20 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34076">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34076/tickets">Buy</a>
+<div class="tickets event-34076">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/cmb7s" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/cmb7s" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 21 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34194">
+    
+                                        <a class="availability-button buy" href="/events/34194/tickets">Buy</a>
+<div class="tickets event-34194">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/m25bl" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/m25bl" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 22 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34070">
+    
+                                        <a class="availability-button buy" href="/events/34070/tickets">Buy</a>
+<div class="tickets event-34070">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/x9s8v" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/x9s8v" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 23 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34077">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34077/tickets">Buy</a>
+<div class="tickets event-34077">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/8n8wc" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/8n8wc" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 24 February 2018, 1.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34200">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34200/tickets">Buy</a>
+<div class="tickets event-34200">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/l8bjz" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/l8bjz" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 24 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34201">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34201/tickets">Buy</a>
+<div class="tickets event-34201">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/g2w8h" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/g2w8h" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 26 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34071">
+    
+                                        <a class="availability-button buy" href="/events/34071/tickets">Buy</a>
+<div class="tickets event-34071">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/7kk6r" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/7kk6r" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 27 February 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34078">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34078/tickets">Buy</a>
+<div class="tickets event-34078">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/8hk9b" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/8hk9b" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 28 February 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34202">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34202/tickets">Buy</a>
+<div class="tickets event-34202">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/74yd4" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/74yd4" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 1 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34195">
+    
+                                        <a class="availability-button buy" href="/events/34195/tickets">Buy</a>
+<div class="tickets event-34195">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/tqk48" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/tqk48" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 2 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34196">
+    
+                                        <a class="availability-button buy" href="/events/34196/tickets">Buy</a>
+<div class="tickets event-34196">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/lsqh8" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/tosca-by-jonathan-kent/images/halves?1504697128" alt="Tosca" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/lsqh8" class="headingLink">
+                Tosca
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 3 March 2018, 12 noon |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Drama, passion and fabulous music – <em>Tosca</em> is one of the great evenings of opera. Jonathan Kent’s production draws on the dangerous turbulence of Rome in 1800.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34072">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Matinee"><a href="/visit/tickets#event-indicators">Matinee</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34072/tickets">Buy</a>
+<div class="tickets event-34072">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/94vyz" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/94vyz" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 3 March 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34079">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34079/tickets">Buy</a>
+<div class="tickets event-34079">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/lnf4f" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/lnf4f" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 5 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34203">
+    
+                                        <a class="availability-button buy" href="/events/34203/tickets">Buy</a>
+<div class="tickets event-34203">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/5s664" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/5s664" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 6 March 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34080">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34080/tickets">Buy</a>
+<div class="tickets event-34080">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/s8h4w" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/s8h4w" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 8 March 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34081">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34081/tickets">Buy</a>
+<div class="tickets event-34081">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/9zz4p" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/giselle-by-peter-wright/images/halves?1504696524" alt="Giselle" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/9zz4p" class="headingLink">
+                Giselle
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 9 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The greatest of all Romantic ballets, Peter Wright’s production of Marius Petipa’s classic is a tale of betrayal, the supernatural and love that transcends death.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34197">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34197/tickets">Buy</a>
+<div class="tickets event-34197">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/n9shm" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/n9shm" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 12 March 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34082">
+            <ul class="event-indicators">
+                                        <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                            <li title="BSL interpreted"><a href="/visit/tickets#event-indicators">BSL</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34082/tickets">Buy</a>
+<div class="tickets event-34082">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/7xw94" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/7xw94" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 13 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34204">
+    
+                                        <a class="availability-button buy" href="/events/34204/tickets">Buy</a>
+<div class="tickets event-34204">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/j6hrf" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/j6hrf" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Thursday 15 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="33967">
+            <ul class="event-indicators">
+                                        <li title="First performance"><a href="/visit/tickets#event-indicators">First perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/33967/tickets">Buy</a>
+<div class="tickets event-33967">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/2jzxm" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/carmen-by-barrie-kosky/images/halves?1504695987" alt="Carmen" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/2jzxm" class="headingLink">
+                Carmen
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 16 March 2018, 7pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Barrie Kosky directs Bizet’s classic French opera with characteristic energy and imagination.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34083">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                            <li title="Early start"><a href="/visit/tickets#event-indicators">Early start</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34083/tickets">Buy</a>
+<div class="tickets event-34083">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/l597k" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/l597k" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Saturday 17 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34346">
+    
+                                        <a class="availability-button buy" href="/events/34346/tickets">Buy</a>
+<div class="tickets event-34346">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/8sq39" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/8sq39" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 20 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34205">
+    
+                                        <a class="availability-button buy" href="/events/34205/tickets">Buy</a>
+<div class="tickets event-34205">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/8sfq4" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/productions/the-winters-tale-by-christopher-wheeldon/images/halves?1504696955" alt="The Winter&#039;s Tale" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/8sfq4" class="headingLink">
+                The Winter&#039;s Tale
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Wednesday 21 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            Shakespeare’s tale of love and loss becomes compelling dance drama in Christopher Wheeldon’s ballet adaptation, with music by Joby Talbot.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34206">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34206/tickets">Buy</a>
+<div class="tickets event-34206">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/b6j6s" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/b6j6s" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 23 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34351">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34351/tickets">Buy</a>
+<div class="tickets event-34351">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/6j4b4" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/6j4b4" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 27 March 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34352">
+            <ul class="event-indicators">
+                                        <li title="Camera filming"><a href="/visit/tickets#event-indicators">Filming</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34352/tickets">Buy</a>
+<div class="tickets event-34352">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/d2g9t" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/d2g9t" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Tuesday 3 April 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34373">
+    
+                                        <a class="availability-button buy" href="/events/34373/tickets">Buy</a>
+<div class="tickets event-34373">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/4r9sp" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/4r9sp" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Friday 6 April 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34470">
+    
+                                        <a class="availability-button buy" href="/events/34470/tickets">Buy</a>
+<div class="tickets event-34470">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                            <div class="pictureCaption">
+    <div>
+        <a href="/events/trr87" class="imageLink">
+                                    <img src="https://roh.global.ssl.fastly.net/mixed-programmes/new-wayne-mcgregor-the-age-of-anxiety-new-christopher-wheeldon/images/halves?1504697321" alt="New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon" class="fluid" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="/events/trr87" class="headingLink">
+                New Wayne McGregor / The Age of Anxiety / New Christopher Wheeldon
+            </a>
+        </h3>
+        <p class="subHdr">
+                            Monday 9 April 2018, 7.30pm |
+                Main Stage
+                    </p>
+        <p class="shortBackground">
+            The Royal Ballet celebrates the centenary of Leonard Bernstein’s birth with an all-Bernstein programme from the Company’s three associate choreographers, Wayne McGregor, Liam Scarlett and Christopher Wheeldon.
+        </p>
+        <div class="availability">
+                            <span style="float: right; border-bottom: 1px solid #f8f8f8; height: 1px; width: 9px"></span>
+
+    <div class="event-page-widget">
+        <div class="event-availability" data-event-id="34471">
+            <ul class="event-indicators">
+                                        <li title="Last performance"><a href="/visit/tickets#event-indicators">Last perf.</a></li>
+                    </ul>
+    
+                                        <a class="availability-button buy" href="/events/34471/tickets">Buy</a>
+<div class="tickets event-34471">
+    <p><span class="price-range"></span></p>
+</div>
+
+                        </div>
+
+    </div>
+
+                    </div>
+    </div>
+</div>
+
+                        </article>
+    <div id="tsEventTemplate">
+                <div class="pictureCaption">
+    <div>
+        <a href="" class="imageLink">
+                            <img class="fluid" src="" alt="" />
+                    </a>
+    </div>
+    <div>
+        <h3>
+            <a href="" class="headingLink">
+                
+            </a>
+        </h3>
+        <p class="subHdr">
+                    </p>
+        <p class="shortBackground">
+            
+        </p>
+        <div class="availability">
+                    </div>
+    </div>
+</div>
+
+    </div>
+</div>
+        <div id='lftr'></div>
+    </div>
+
+    <footer id="ftr">
+        <section>
+            <ul class="links">
+                <li>
+                                            <h3 class="ftrLnk">2017/18</h3>
+                        <ul>
+                                                            <li><a href="/seasons/2017-18/autumn">Autumn Season</a></li>
+                                                            <li><a href="/seasons/2017-18/winter">Winter Season</a></li>
+                                                            <li><a href="/seasons/2017-18/spring">Spring Season</a></li>
+                                                            <li><a href="/seasons/2017-18/summer">Summer Season</a></li>
+                                                                                        <li><a href="https://www.roh.org.uk/news/opera-and-music-at-the-royal-opera-house-201718">Opera 2017/18</a></li>
+                                                                                        <li><a href="https://www.roh.org.uk/news/ballet-and-dance-at-the-royal-opera-house-201718">Ballet 2017/18</a></li>
+                                                                                        <li><a href="/cinemas">Cinema</a></li>
+                                <li><a href="/about/bp-big-screens">BP Big Screens</a></li>
+                                <li><a href="/news/tags/broadcast">TV and radio</a></li>
+                                <li><a href="/about/daytime-events">Daytime events</a></li>
+                                                    </ul>
+                                    </li>
+                <li>
+                    <h3 class="ftrLnk">Booking</h3>
+                    <ul>
+                        <li><a href="/help">Help</a></li>
+                        <li><a href="/visit/tickets">Tickets</a></li>
+                        <li><a href="/visit/tickets#seating-plan">Seating plan</a></li>
+                                                    <li><a href="/gift-certificate">Gift certificates</a></li>
+                                                <li><a href="/packages">Advance Booking Packages</a></li>
+                        <li><a href="/visit/tickets/group-bookings">Group Bookings</a></li>
+                    </ul>
+                    <h3 class="ftrLnk">Policies</h3>
+                    <ul>
+                        <li><a href="/policies/cookie-usage">Cookie usage</a></li>
+                        <li><a href="/policies/privacy">Privacy</a></li>
+                        <li><a href="/policies/terms-and-conditions-of-sale">Terms and conditions of sale</a></li>
+                        <li><a href="/policies/community-guidelines">Community guidelines</a></li>
+                        <li><a href="/about/royal-opera-house/corporate-policies">Corporate Policies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 class="ftrLnk">For</h3>
+                    <ul>
+                        <li><a href="/for/rohstudents">Students</a></li>
+                        <li><a href="/for/press-and-communications">Press and Media</a></li>
+                    </ul>
+                    <h3 class="ftrLnk">Services</h3>
+                    <ul>
+                        <li><a href="/services/venue-hire">Venue hire</a></li>
+                        <li><a href="/services/advertising">Advertising</a></li>
+                        <li><a href="/services/brand-licensing">Brand licensing</a></li>
+                        <li><a href="/services/licensing-clips-and-images">Licensing clips and images</a></li>
+                    </ul>
+                </li>
+                <li>
+                   <h3 class="ftrLnk">Your visit</h3>
+                   <ul>
+                    <li><a href="/visit/getting-here">Getting here</a></li>
+                    <li><a href="/visit/attending-a-performance">Attending a performance</a></li>
+                    <li><a href="/visit/restaurants-and-bars">Restaurants and bars</a></li>
+                    <li><a href="/visit/access">Access</a></li>
+                    <li><a href="/visit/shop">Shop</a></li>
+                    <li><a href="/visit/tours">Tours</a></li>
+                    <li><a href="/visit/exhibitions">Exhibitions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 class="ftrLnk">Support us</h3>
+                    <ul>
+                        <li><a href="/support/why-support-us">Why support us?</a></li>
+                        <li><a href="/support/fundraising-appeals">Fundraising appeals</a></li>
+                        <li><a href="/support/membership">Membership</a></li>
+                                                    <li><a href="/support/donate-now">Donate now</a></li>
+                                            </ul>
+                    <h3 class="ftrLnk">Learning</h3>
+                    <ul>
+                        <li><a href="/learning/learning-platform">Learning Platform</a></li>
+                        <li><a href="/learning/young-people">Young People</a></li>
+                        <li><a href="/learning/adults-learning">Adults</a></li>
+                        <li><a href="/learning/community-3">Community</a></li>
+                        <li><a href="/learning/learning-in-thurrock">Learning in Thurrock</a></li>
+                        <li><a href="/learning/royal-opera-house-bridge">Royal Opera House Bridge</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 class="ftrLnk">About</h3>
+                    <ul>
+                        <li><a href="/about/royal-opera-house">Royal Opera House</a></li>
+                        <li><a href="/about/the-royal-opera">The Royal Opera</a></li>
+                        <li><a href="/about/the-royal-ballet">The Royal Ballet</a></li>
+                        <li><a href="/about/the-orchestra-of-the-royal-opera-house">The Orchestra of the ROH</a></li>
+                        <li><a href="/about/the-royal-opera-chorus">The Royal Opera Chorus</a></li>
+                        <li><a href="/about/open-up">Open Up</a></li>
+                        <li><a href="/about/roh-collections">ROH Collections</a></li>
+                        <li><a href="/about/thurrock">Thurrock</a></li>
+                        <li><a href="/about/jette-parker-young-artists-programme">Jette Parker Young Artists</a></li>
+                        <li><a href="/about/royal-opera-house/work-here">Careers</a></li>
+                        <li><a href="/about/royal-opera-house/annual-review">Annual Review</a></li>
+                        <li><a href="/contact">Contact us</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="contact">
+                <li>
+                    <p><span class="grey">&copy; 2017</span><br>Royal Opera House<br>Bow Street<br>Covent Garden<br>London<br>WC2E 9DD</p>
+                </li>
+                <li>
+                    <p><span class="grey">Box Office</span><br>+44 (0)20 7304 4000<br><span class="grey">(Mon-Sat, 10am-8pm)</span></p>
+                    <p><span class="grey">Switchboard</span><br>+44 (0)20 7240 1200</p>
+                </li>
+                <li>
+                    <a href="http://www.artscouncil.org.uk/" title="Visit the Arts Council England website">
+                        <img
+                                                            src="https://roh.global.ssl.fastly.net/v2/images/08ea196.png?v=1.47.0"
+                                                    srcset="https://roh.global.ssl.fastly.net/v2/images/1056742.png?v=1.47.0 2x,https://roh.global.ssl.fastly.net/v2/images/5797d47.png?v=1.47.0 3x" width="288" height="96" alt="Supported using public funding by Arts Council England">
+                    </a>
+                </li>
+            </ul>
+            <div class="companyFooter">
+                <p>Royal Opera House Covent Garden Foundation, a charitable company limited by guarantee incorporated in England and Wales (Company number 480523) Charity Registered (Number 211775)</p>
+            </div>
+        </section>
+    </footer>
+</div>
+
+<script>
+
+var selectBoxCallback = function (u, result, k)
+{
+	if (result) {
+		$('select').not('.no-js-styling, .no-js-styling *, .wpcf7-select').selectBox();
+	}
+};
+
+yepnope([
+{
+	load:
+			'https://roh.global.ssl.fastly.net/v2/js/f303f67.js?v=1.47.0',
+		callback:function(){
+		yepnope([
+			{test:Modernizr.testfs,yep:{ 'fscss':'css!https://roh.global.ssl.fastly.net/v2/css/b090fda.css?v=1.47.0','fsjs':'https://roh.global.ssl.fastly.net/v2/js/fc5c5f5.js?v=1.47.0'},callback:{'fsjs':function(u,r,k){if(r===true)initFS();}}},
+			{test:Modernizr.testrs,yep:{ 'rscss':'css!https://roh.global.ssl.fastly.net/v2/css/a838ee6.css?v=1.47.0','rsjs':'https://roh.global.ssl.fastly.net/v2/js/3d74da7.js?v=1.47.0'},callback:{'rsjs':function(u,r,k){if(r===true)initRS();}}},
+			{test:Modernizr.testsb,yep:{ 'sbcss':'css!https://roh.global.ssl.fastly.net/v2/css/d673bc4.css?v=1.47.0','sbjs':'https://roh.global.ssl.fastly.net/v2/js/05e1e35.js?v=1.47.0'},callback:{'sbjs': selectBoxCallback}},
+			{test:Modernizr.testyt,yep:{ 'ytjs':'https://roh.global.ssl.fastly.net/v2/js/2cf4861.js?v=1.47.0'},complete: function() { youtubeApiKey = 'AIzaSyALKLFs8uf8eVb8yF2SMJmnMJhfoP6-XYo'; }},
+			{test:Modernizr.testdp,yep:{ 'mmjs':'https://roh.global.ssl.fastly.net/v2/js/da726ce.js?v=1.47.0','dpjs':'https://roh.global.ssl.fastly.net/v2/js/242c911.js?v=1.47.0'}},
+			{test:Modernizr.testwc,yep:{ 'wcjs':'https://roh.global.ssl.fastly.net/v2/js/358c6a9.js?v=1.47.0'},callback:{'wcjs':function(u,r,k){if(r===true){initWC();$( "#wcc a" ).tagcloud();}}}}
+        ]);
+}
+},
+{
+	load:'https://roh.global.ssl.fastly.net/v2/js/622dfc9.js?v=1.47.0',callback:function(){var Massenet = window.Massenet || {};}
+},
+{
+	load:'https://roh.global.ssl.fastly.net/v2/js/9bcb5dc.js?v=1.47.0',callback:function(){$('.collapsible').collapsible();}
+}
+]);
+</script>
+
+<!--[if lte IE 8]>
+            <script src="https://roh.global.ssl.fastly.net/v2/js/1bd4c24.js?v=1.47.0"></script>
+    <![endif]-->
+
+    <script src="https://roh.global.ssl.fastly.net/v2/js/a592afd.js?v=1.47.0"></script>
+
+            <script src="https://roh.global.ssl.fastly.net/v2/js/ed63c33.js?v=1.47.0"></script>
+        <script>if (window.location.pathname === '/confirmation' && window.jQuery && typeof $(document).rohTransaction === 'function') $(document).rohTransaction();</script>
+    </body>

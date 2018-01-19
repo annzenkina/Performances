@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  theatre: MyString
+  starts_on: 2017-12-19 15:30:41
+  price: 9.99
+  link: MyString
+  tags: MyString
+  poster: MyString
+  description: MyString
+
+two:
+  title: MyString
+  theatre: MyString
+  starts_on: 2017-12-19 15:30:41
+  price: 9.99
+  link: MyString
+  tags: MyString
+  poster: MyString
+  description: MyString

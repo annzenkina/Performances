@@ -1,0 +1,104 @@
+<% if params[:theatre] == 'national' %>
+    <form action="/theatres/national">
+      <div class="row">
+        <div class="col-md-3">
+         <select class="form-control" id="select_time" name="time">
+          <option value=""> – At What Time –</option>
+          <option value="afternoon" <% if params[:time] == "afternoon" %> selected <% end %>> Afternoon </option>
+          <option value="evening" <% if params[:time] == "evening" %> selected <% end %>> Evening</option>
+          <option value="morning" <% if params[:time] == "morning" %> selected <% end %>> Morning</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" id="select_when" name="when">
+          <option value=""> – When –</option>
+          <option value="today" <% if params[:when] == "today" %> selected <% end %>>Today</option>
+          <option value="this_week" <% if params[:when] == "this_week" %> selected <% end %>>This Week</option>
+          <option value="this_month" <% if params[:when] == "this_month" %> selected <% end %>>This Month</option>
+          <option value="next_month" <% if params[:when] == "next_month" %> selected <% end %>>Next Month</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" id="select_price" name="price">
+          <option value=""> – Price –</option>
+          <option value="up_to_20" <% if params[:price]=="up_to_20" %>selected<% end %>>Up to £20</option>
+          <option value="up_to_40" <% if params[:price]=="up_to_40" %>selected<% end %>>Up to £40 </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </form>
+<% end %>
+
+<% if params[:theatre] == 'roh' %>
+  <form action="/theatres/roh">
+    <div class="row">
+      <div class="col-md-3">
+       <select class="form-control" id="select_time" name="time">
+         <option value=""> – At What Time –</option>
+         <option value="afternoon" <% if params[:time] == "afternoon" %> selected <% end %>> Afternoon </option>
+         <option value="evening" <% if params[:time] == "evening" %> selected <% end %>> Evening</option>
+         <option value="morning" <% if params[:time] == "morning" %> selected <% end %>> Morning</option>
+       </select>
+      </div>
+    <div class="col-md-3">
+      <select class="form-control" id="select_when" name="when">
+        <option value=""> – When –</option>
+        <option value="today" <% if params[:when] == "today" %> selected <% end %>>Today</option>
+        <option value="this_week" <% if params[:when] == "this_week" %> selected <% end %>>This Week</option>
+        <option value="this_month" <% if params[:when] == "this_month" %> selected <% end %>>This Month</option>
+        <option value="next_month" <% if params[:when] == "next_month" %> selected <% end %>>Next Month</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-control" id="select_tags" name="tags">
+        <option value=""> – Tags –</option>
+        <% @tags_set.each do |tag|%>
+           <option value="<%=tag.downcase%>" <% if params[:tags] == tag.downcase %> selected <% end %>><%= tag.capitalize %> </option>
+         <% end %>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+  </form>
+<% end %>
+
+<% if params[:theatre] == 'southbank' %>
+  <form action="/theatres/southbank">
+    <div class="row">
+      <div class="col-md-3">
+        <select class="form-control" id="select_tags" name="tags">
+          <option value=""> – Tags –</option>
+          <%@tags_set.each do |tag|%>
+            <option value="<%=tag.downcase%>" <% if params[:tags] == tag.downcase %> selected <% end %>> <%= tag.capitalize %></option>>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </form>
+<% end %>
+<!-- <%= debug @tags_set.to_a %> -->
+
+<% @event_arr.each do |event| %>
+  <h2> <%= link_to event.theatre + " – " + event.title, event.link %></h2>
+  <div class="row">
+    <div class="col-lg-6">
+        <%= image_tag event.poster, class: "img-rounded" %>
+    </div>
+    <div class="col-lg-6 text-justify">
+        <h5><%= event.date %> </h5>
+        <h5><%= event.time %> </h5>
+        <h5><%= event.price || "No price available" %> </h5>
+        <p><%= event.description %></p>
+        <strong><%= event.tags %></strong>
+    </div>
+    <!--<div class="col-xs-6 col-md-4"></div>-->
+  </div>
+<% end %>
