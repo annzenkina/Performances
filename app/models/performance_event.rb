@@ -69,7 +69,7 @@ class PerformanceEvent
       end
 
       if params[:tags]
-        event_arr = event_arr.select { |event| event.tags != nil && event.tags.downcase.include?(params[:tags])}
+        event_arr = event_arr.select { |event| event.tags != nil && event.tags.downcase.include?(params[:tags].downcase)}
       end
       event_arr
     end
