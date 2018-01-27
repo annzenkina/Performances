@@ -22,4 +22,8 @@ module EventTimeHelpers
   def today?
     parsed_date == Date.current
   end
+
+  def next_month?
+    parsed_date <= Time.current.end_of_month + 1.month && parsed_date >=Time.current.end_of_month + 1.day
+  end
 end

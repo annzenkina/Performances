@@ -29,9 +29,6 @@ class PerformanceEvent
     end
   end
 
-  def next_month?
-    parsed_date <= Time.current.end_of_month + 1.month && parsed_date >=Time.current.end_of_month + 1.day
-  end
 
   def self.filter_events(event_arr, params)
     # if params[:theatre] = 'national'
