@@ -8,3 +8,10 @@ Each theatre has it's own filters, depends on information they provide on a webs
 
 ## Preview
 ![Preview](/demonstration/perfomances_demonstration.gif)
+
+## Code coverage
+
+I decided to try using `codecov` library that calculates code coverage.
+That helped me to increase code coverage to 96%.
+
+![](/demonstration/coverage.png)
